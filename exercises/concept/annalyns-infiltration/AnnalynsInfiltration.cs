@@ -4,21 +4,31 @@ static class QuestLogic
 {
     public static bool CanFastAttack(bool knightIsAwake)
     {
-        throw new NotImplementedException("Please implement the (static) QuestLogic.CanFastAttack() method");
+        if (knightIsAwake == false)
+            return true;
+        return false;
     }
 
     public static bool CanSpy(bool knightIsAwake, bool archerIsAwake, bool prisonerIsAwake)
     {
-        throw new NotImplementedException("Please implement the (static) QuestLogic.CanSpy() method");
+        if(knightIsAwake == true || archerIsAwake == true || prisonerIsAwake == true)
+            return true;
+        return false;
     }
 
     public static bool CanSignalPrisoner(bool archerIsAwake, bool prisonerIsAwake)
     {
-        throw new NotImplementedException("Please implement the (static) QuestLogic.CanSignalPrisoner() method");
+        if(archerIsAwake == false && prisonerIsAwake == true)
+            return true;
+        return false;
     }
 
     public static bool CanFreePrisoner(bool knightIsAwake, bool archerIsAwake, bool prisonerIsAwake, bool petDogIsPresent)
     {
-        throw new NotImplementedException("Please implement the (static) QuestLogic.CanFreePrisoner() method");
+        bool scenario1 = !knightIsAwake && !archerIsAwake && prisonerIsAwake ? false : true;
+        bool scenario2 = petDogIsPresent && !archerIsAwake ? true : false;
+        
+        return scenario1 || scenario2;
+            
     }
 }
